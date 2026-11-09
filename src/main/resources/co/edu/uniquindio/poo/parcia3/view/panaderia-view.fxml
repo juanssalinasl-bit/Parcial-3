@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.parcia3.viewController.PanaderiaViewController" styleClass="principal">
+    <top>
+        <VBox spacing="5" styleClass="encabezado">
+            <padding><Insets top="18" right="25" bottom="15" left="25"/></padding>
+            <Label text="PANADERÍA EL TRIGAL" styleClass="titulo"/>
+            <Label text="Registro de empleados, pedidos y asignación de producción" styleClass="subtitulo"/>
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true">
+            <content>
+                <VBox spacing="12">
+                    <padding><Insets top="15" right="20" bottom="15" left="20"/></padding>
+                    <HBox spacing="12" styleClass="panel">
+                        <VBox spacing="7" HBox.hgrow="ALWAYS">
+                            <Label text="Registrar pedido" styleClass="seccion"/>
+                            <GridPane hgap="8" vgap="7">
+                                <Label text="Código:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                                <TextField fx:id="txtCodigo" promptText="Ej. P01" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                                <Label text="Cliente:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                                <TextField fx:id="txtCliente" promptText="Nombre del cliente" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                                <Label text="Tipo de pan:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                                <ComboBox fx:id="cmbTipo" prefWidth="180" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                                <Label text="Cantidad:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                                <TextField fx:id="txtCantidad" promptText="Unidades" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                            </GridPane>
+                            <Button text="Registrar pedido" onAction="#registrarPedido" styleClass="boton-principal"/>
+                        </VBox>
+                        <Separator orientation="VERTICAL"/>
+                        <VBox spacing="7" HBox.hgrow="ALWAYS">
+                            <Label text="Gestionar pedido" styleClass="seccion"/>
+                            <Label text="Código del pedido:"/>
+                            <TextField fx:id="txtCodigoAccion" promptText="Código existente"/>
+                            <HBox spacing="8">
+                                <Button text="Asignar" onAction="#asignarPedido" styleClass="boton-principal"/>
+                                <Button text="Cancelar" onAction="#cancelarPedido" styleClass="boton-secundario"/>
+                            </HBox>
+                            <Label text="Se asigna al panadero que pueda completar el pedido en menos tiempo." wrapText="true"/>
+                        </VBox>
+                    </HBox>
+                    <VBox spacing="7" styleClass="panel">
+                        <Label text="Registrar empleado" styleClass="seccion"/>
+                        <GridPane hgap="9" vgap="7">
+                            <Label text="Código:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtCodigoEmpleado" promptText="Ej. PA02" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                            <Label text="Nombre:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                            <TextField fx:id="txtNombreEmpleado" promptText="Nombre completo" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                            <Label text="Documento:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="txtDocumentoEmpleado" promptText="Documento" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                            <Label text="Minutos:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                            <TextField fx:id="txtMinutosEmpleado" promptText="Minutos disponibles" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                            <Label text="Cargo:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="cmbCargo" prefWidth="190" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                            <Label fx:id="lblCaja" text="Caja asignada:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                            <TextField fx:id="txtCaja" promptText="Ej. Caja 2" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+                        </GridPane>
+                        <Button text="Registrar empleado" onAction="#registrarEmpleado" styleClass="boton-principal"/>
+                    </VBox>
+                    <Label text="Historial de pedidos" styleClass="seccion"/>
+                    <TableView fx:id="tablaPedidos" prefHeight="220">
+                        <columns>
+                            <TableColumn fx:id="colCodigo" text="Código" prefWidth="75"/>
+                            <TableColumn fx:id="colCliente" text="Cliente" prefWidth="120"/>
+                            <TableColumn fx:id="colTipo" text="Tipo" prefWidth="95"/>
+                            <TableColumn fx:id="colCantidad" text="Cantidad" prefWidth="75"/>
+                            <TableColumn fx:id="colEstado" text="Estado" prefWidth="95"/>
+                            <TableColumn fx:id="colEmpleado" text="Cód. panadero" prefWidth="105"/>
+                            <TableColumn fx:id="colNombrePanadero" text="Nombre panadero" prefWidth="135"/>
+                            <TableColumn fx:id="colMinutos" text="Min. reservados" prefWidth="105"/>
+                        </columns>
+                    </TableView>
+                    <Label text="Empleados y minutos disponibles" styleClass="seccion"/>
+                    <TableView fx:id="tablaEmpleados" prefHeight="150">
+                        <columns>
+                            <TableColumn fx:id="colCodigoEmpleado" text="Código" prefWidth="110"/>
+                            <TableColumn fx:id="colNombreEmpleado" text="Nombre" prefWidth="190"/>
+                            <TableColumn fx:id="colTipoEmpleado" text="Cargo" prefWidth="170"/>
+                            <TableColumn fx:id="colDisponibles" text="Minutos disponibles" prefWidth="180"/>
+                        </columns>
+                    </TableView>
+                    <Label fx:id="lblEstado" text="Sistema listo." styleClass="estado" wrapText="true"/>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane>

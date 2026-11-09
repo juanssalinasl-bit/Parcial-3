@@ -1,0 +1,10 @@
+.root { -fx-font-family: "Arial"; -fx-background-color: #f5f2eb; }
+.encabezado { -fx-background-color: #70452f; }
+.titulo { -fx-font-size: 25px; -fx-font-weight: bold; -fx-text-fill: white; }
+.subtitulo { -fx-font-size: 13px; -fx-text-fill: #f3dfc9; }
+.panel { -fx-background-color: white; -fx-padding: 16px; -fx-background-radius: 9px; -fx-border-color: #e4d8c9; -fx-border-radius: 9px; }
+.seccion { -fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #70452f; }
+.boton-principal { -fx-background-color: #70452f; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6px; }
+.boton-secundario { -fx-background-color: #a44b3f; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6px; }
+.estado { -fx-background-color: #eee5d9; -fx-padding: 10px; -fx-background-radius: 6px; -fx-text-fill: #493225; }
+.table-view { -fx-background-radius: 6px; }
